@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+*{
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins';
+}
+
+:root{
+    --purple: rgb(142, 56, 223);
+    --blue: rgb(0, 238, 255);
+}
+
+body{
+    height: 100vh;
+    background: #111;
+
+}
+
+.container__cards{
+    height: 100vh;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
+
+.card__music img{
+    width: 15rem;
+}
+
+.card__music{
+    border: 2px solid #222;
+    padding: 1rem;
+    border-radius: 5px;
+}
+
+.names{
+    margin: .5rem 0;
+    color: #eee;
+    display:   grid;
+}
+
+.names p:last-child{
+    opacity: .3;
+}
+
+.tempo__barra{
+    display: flex;
+    align-items: center; justify-content: flex-start;
+    width: 100%;
+    height: 6px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    margin: .8rem 0
+}
+
+.barra{
+    height: 100%;
+    width: 0%;
+}
+
+.bola{
+    width: 1.4rem; height: 1.4rem;
+    background: #eee;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-left: -0.7rem;
+}
+
+.tempo__escrito{
+    display: flex;
+    align-items: center; justify-content: space-between;
+    margin: .5rem 0;
+    color: #eee;
+}
+
+.opcoes{
+    margin: 1rem 0;
+    color: #eee;
+    display: flex;
+    align-items: center; justify-content: space-between;
+    font-size: 3rem;
+}
+
+.opcoes i{
+    cursor: pointer;
+    padding: .3rem;
+    cursor: pointer;
+}
+
+.pause{
+    display: none;
+}
+
+.back, .skip{
+    font-size: 2.5rem;
+}
+
+/*EFEITO DE BOLHAS*/
+
+.bolhas{
+    z-index: -1;
+    top: 0;
+    left: 0;
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    display: flex;;
+    overflow: hidden;
+}
+
+.bolha{
+    z-index: -1;
+    background: var(--purple);
+    min-width: 1rem; max-height: 1rem;
+    margin: 0 1rem;
+    border-radius: 50%;
+    box-shadow: 0 0 0 .5rem rgba(142, 56, 223, 0.199),
+                0 0 25px rgba(142, 56, 223),
+                0 0 50px rgba(142, 56, 223),
+                0 0 100px rgba(142, 56, 223);
+    animation: bolhas calc((1s * var(--i) + 0.25s)) linear infinite;
+}
+
+.bolhas .bolha:nth-of-type(even){
+    background: var(--blue);
+    box-shadow: 0 0 0 .5rem rgba(0, 238, 255, 0.199),
+                0 0 25px rgba(0, 238, 255),
+                0 0 50px  rgba(0, 238, 255),
+                0 0 100px  rgba(0, 238, 255);
+}
+
+@keyframes bolhas {
+    0%{
+        transform: translateY(110vh) scale(0);
+    }
+
+    100%{
+        transform: translateY(-10vh) scale(1);
+    }
+}
